@@ -112,6 +112,7 @@ public class NoteRecyclerViewAdapter extends RecyclerView.Adapter<NoteRecyclerVi
         EditText editText = view.findViewById(R.id.edtTxtNoteModified);
         editText.setText(contentEditText);
         Button modify = view.findViewById(R.id.btnModify);
+        Button btnCancel = view.findViewById(R.id.btnCancelModify);
 
         // Handle button click
         modify.setOnClickListener(new View.OnClickListener() {
@@ -121,6 +122,12 @@ public class NoteRecyclerViewAdapter extends RecyclerView.Adapter<NoteRecyclerVi
                 Toast.makeText(context, text, Toast.LENGTH_SHORT).show();
                 notes.set(position,new Note(text,new Date(System.currentTimeMillis())));
                 setNotes(notes);
+                dialog.dismiss();
+            }
+        });
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 dialog.dismiss();
             }
         });

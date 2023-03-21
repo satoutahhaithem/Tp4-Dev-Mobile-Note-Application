@@ -80,8 +80,12 @@ public class HomeActivity extends AppCompatActivity {
             Toast.makeText(this, "The Note is "+editText.getText().toString(), Toast.LENGTH_SHORT).show();
             alertDialog.dismiss();
         });
-
-
+        mView.findViewById(R.id.btnCancel).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alertDialog.dismiss();
+            }
+        });
         alertDialog.show();
 
     }
