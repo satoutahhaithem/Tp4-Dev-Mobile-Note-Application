@@ -11,24 +11,20 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="5dp"
-        android:text="Enter the Modified Note Here"
+        android:text="You really want to delete !"
         android:textColor="@android:color/black"
         android:textSize="18sp" />
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:id="@+id/edtTxtNoteModified"
-        />
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_marginTop="40dp"
         android:weightSum="2">
 
         <Button
-            android:id="@+id/btnCancelModify"
+            android:id="@+id/btnCancelDelete"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="5dp"
@@ -40,13 +36,13 @@
             android:textSize="18sp" />
 
         <Button
-            android:id="@+id/btnModify"
+            android:id="@+id/btnDelete"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:layout_weight="1"
             android:background="#FFEB3B"
-            android:text="Modify"
+            android:text="Delete"
             android:textAllCaps="false"
             android:textColor="@android:color/black"
             android:textSize="18sp" />

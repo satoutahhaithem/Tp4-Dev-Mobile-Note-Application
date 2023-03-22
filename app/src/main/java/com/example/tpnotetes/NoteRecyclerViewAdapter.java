@@ -52,9 +52,7 @@ public class NoteRecyclerViewAdapter extends RecyclerView.Adapter<NoteRecyclerVi
         holder.rubish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                notes.remove(position);
-                notifyItemRemoved(position);
-                setNotes(notes);
+                confirmDelete(context,position);
             }
         });
 
@@ -121,6 +119,39 @@ public class NoteRecyclerViewAdapter extends RecyclerView.Adapter<NoteRecyclerVi
                 String text = editText.getText().toString();
                 Toast.makeText(context, text, Toast.LENGTH_SHORT).show();
                 notes.set(position,new Note(text,new Date(System.currentTimeMillis())));
+                setNotes(notes);
+                dialog.dismiss();
+            }
+        });
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        // Display the dialog
+        dialog.show();
+    }
+    private void confirmDelete(Context context,int position){
+        // Inflate the dialog layout
+        View view = LayoutInflater.from(context).inflate(R.layout.confirm_delete_layout, null);
+
+        // Create the dialog
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setView(view);
+        AlertDialog dialog = builder.create();
+
+        // Get references to the EditText and Button
+        Button btnDelete=view.findViewById(R.id.btnDelete);
+        Button btnCancel=view.findViewById(R.id.btnCancelDelete);
+
+        // Handle button click
+        btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                notes.remove(position);
+                notifyItemRemoved(position);
                 setNotes(notes);
                 dialog.dismiss();
             }

@@ -1,8 +1,13 @@
 package com.example.tpnotetes;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import androidx.annotation.NonNull;
+
 import java.util.Date;
 
-public class Note {
+public class Note implements Parcelable {
     private String note;
     private Date date;
 
@@ -25,5 +30,15 @@ public class Note {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(@NonNull Parcel dest, int flags) {
+
     }
 }
